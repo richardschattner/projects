@@ -2,8 +2,8 @@
 This folder showcases some experiments with ML techniques on various datasets.  
 The methods used are not particularly related to another.
 
-#### VAE
-In this Notebook, VAE.ipynb , I implemented a VAE trained on the FashionMNIST dataset.
+#### VAE (VAE.ipynb)
+In this Notebook, I implemented a VAE trained on the FashionMNIST dataset.
 The network is able to recreate the input image quite well, albeit at the loss of some details.  
 This notebook includes a short discussion on the balance of the KLD term and the reconstruction term of the VAE's loss function.
 I obtained a good balance between the two through loss-terms, through experimentation.  
@@ -14,7 +14,7 @@ In order for the batch size not to effect the MSE loss itself, it is important t
 However using only this term lead to a loss function, which was dominated by the KLD term and thus lead to a VAE, which was overly regularized and bad at reconstructing the original input, leading to a blurry 'blob'-like image.  
 Through experimentation I found that multiplying the MSE_{mean} term by 32 lead to good results, while also maintining independence of the batch size.
 
-#### Comparing data compression methods
+#### Comparing data compression methods (3_methods_compared.ipynb)
 In this notebook I compare fitting 3 NN's on the wine quality dataset.  
 The first NN is fit on the data directly.  
 For the second experiment, the data, consisting of 13 input features and one target variable, is first compressed into 6 input variables using PCA.
