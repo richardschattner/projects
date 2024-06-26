@@ -3,7 +3,7 @@ This folder showcases some experiments with ML techniques on various datasets.
 The methods used are not particularly related to another.
 
 #### VAE
-In this Notebook, I implemented a VAE trained on the FashionMNIST dataset.
+In this Notebook, VAE.ipynb , I implemented a VAE trained on the FashionMNIST dataset.
 The network is able to recreate the input image quite well, albeit at the loss of some details.  
 This notebook includes a short discussion on the balance of the KLD term and the reconstruction term of the VAE's loss function.
 I obtained a good balance between the two through loss-terms, through experimentation.  
