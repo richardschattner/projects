@@ -24,8 +24,13 @@ In the third approach, an Autoencoder with 7 latent dimensions is trained first 
 Then a NN is trained on the latent representation of the input data.
 The final network consists of the encoder subnetwork of the trained AE and then a NN.
 
-The results of the experiment were that compressing the data first using PCA yieled the best test results, closely followed by fitting the model on the data directly.
-The AE approach achieved slightly lower performance than the first two.
+The results of the experiment were that the model which used a retrainable encoder network first, achieved the best performance, followed by using PCA to compress the data first.
+Fittin a NN on the dataset directly achieved a slightly higher test loss than the two.  
+However, fitting a NN on the latent datarepresentation, that was learned by the AE network, without allowing the final model to change the encoders parameters, lead to significantly higher test loss.
+This likely due to the relatively high reconstruction loss of the AE network on the original data, which means that the AE was unfortunately not very good at learning a lower dimensional representation of the data.  
+Given this distorted and lossy compression of the input data, the relatively high test loss of the AE model, with frozen encoder network, becomes understandable.  
+Note that this means, that PCA actually performed a lot better as a data compression method than the trained AE.
+
 I also explored the Curse of Dimensionality, which predicst the first model to overfit more quickly than the other two (where in the third model the encoder network is frozen). 
 This has been experimentally vindicated, I observed that the second model starts to overfit after $\approx 50 \% $ more training epochs than the first model.  
 And in the third model, freezing the encoding network during training leads to less overfitting than when the model is allowed to also retrain the encoding layers. 
