@@ -32,7 +32,7 @@ Given this distorted and lossy compression of the input data, the relatively hig
 Note that this means, that PCA actually performed a lot better as a data compression method than the trained AE.
 
 I also explored the Curse of Dimensionality, which predicst the first model to overfit more quickly than the other two (where in the third model the encoder network is frozen). 
-This has been experimentally vindicated, I observed that the second model starts to overfit after $\approx 50 \% $ more training epochs than the first model.  
+This has been experimentally vindicated, I observed that the second model starts to overfit after $\approx 50 $% more training epochs than the first model.  
 And in the third model, freezing the encoding network during training leads to less overfitting than when the model is allowed to also retrain the encoding layers. 
 
 ### Transformer model to predict review scores (transformer.py)
