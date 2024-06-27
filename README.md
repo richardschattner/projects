@@ -34,3 +34,19 @@ Note that this means, that PCA actually performed a lot better as a data compres
 I also explored the Curse of Dimensionality, which predicst the first model to overfit more quickly than the other two (where in the third model the encoder network is frozen). 
 This has been experimentally vindicated, I observed that the second model starts to overfit after $\approx 50 \% $ more training epochs than the first model.  
 And in the third model, freezing the encoding network during training leads to less overfitting than when the model is allowed to also retrain the encoding layers. 
+
+### Transformer model to predict review scores (transformer.py)
+In this python program I attempt to implement a transformer model to analyze written Amazon reviews and predict the final score.
+The idea is, to take reviews under a fixed length and pad shorter reviews to this length, with a special token and then feed them into the transformer, 
+which uses unmasked self attention (the flash attention implementation for higher efficiency), to process the review text.
+
+The model also sees the number of people who voted that the given review was helpful, as well as the total number of votes.  
+The hope is that this is sufficient information, in order to make useful predictions on the review score.
+
+Given that the Amazon review dataset contains relatively few tokens, when compared to normal LLM datasets, I have made the model quite small, in order to prevent overfitting and speed up learning.
+In particular, my idea was, that since this task is basically a type of sentiment analysis, a small embedding space should suffice, as it is not the full meaning of words that must be learned, 
+but only their effects on the review score.
+
+This repo is currently work in progress and unfinished.
+All the basic functionality has been implemented, but I have not done rigorous testing or training of the model as of yet.
+
