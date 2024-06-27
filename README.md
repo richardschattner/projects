@@ -41,7 +41,6 @@ The idea is, to take reviews under a fixed length and pad shorter reviews to thi
 which uses unmasked self attention (the flash attention implementation for higher efficiency), to process the review text.
 
 The model also sees the number of people who voted that the given review was helpful, as well as the total number of votes.  
-The hope is that this is sufficient information, in order to make useful predictions on the review score.
 
 Given that the Amazon review dataset contains relatively few tokens, when compared to normal LLM datasets, I have made the model quite small, in order to prevent overfitting and speed up learning.
 In particular, my idea was, that since this task is basically a type of sentiment analysis, a small embedding space should suffice, as it is not the full meaning of words that must be learned, 
